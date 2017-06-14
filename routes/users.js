@@ -22,7 +22,8 @@ router.post('/register', (req, res, next) => {
     }else{
       res.json({success: true, msg: 'User registered!'});
     }
-  })
+  });
+  
 });
 
 //Authentication
