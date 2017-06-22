@@ -12,14 +12,20 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
         <!-- <li><a [routerLink]="['/']" >Home</a></li> -->
-        <li><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-        <li><a [routerLink]="['/profile']" >Profile</a></li>
+        <li *ngIf="authService.isSessionAlive()" ><a [routerLink]="['/dashboard']" >Dashboard</a></li>
+        <li *ngIf="authService.isSessionAlive()" ><a [routerLink]="['/profile']" >Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-          <li class="loginLink"><a [routerLink]="['/login']" >Login</a></li>
-          <li><a [routerLink]="['/register']" >Register</a></li>
-          <li class="logoutLink"><a (click)="onLogoutClick()" href="#" >Logout</a></li>
+          <li *ngIf="!authService.isSessionAlive()"class="loginLink">
+            <a [routerLink]="['/login']" >Login</a>
+          </li>
+          <li *ngIf="!authService.isSessionAlive()">
+            <a [routerLink]="['/register']" >Register</a>
+          </li>
+          <li *ngIf="authService.isSessionAlive()" class="logoutLink">
+            <a (click)="onLogoutClick()" href="#" >Logout</a>
+          </li>
       </ul>
 
     </div><!--/.nav-collapse -->

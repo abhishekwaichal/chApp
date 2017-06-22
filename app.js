@@ -29,6 +29,11 @@ app.get('/', (req, res) => {
   res.send('Not a valid route');
 });
 
+//Default route
+app.get('*', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 //Set Static
 app.use(express.static(path.join(__dirname, 'public')));
 

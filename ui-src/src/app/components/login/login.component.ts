@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.authService.storeUserData(data.msg, data.name);
       this.flashMessageService.show ('LOGGED IN',
                         { cssClass:'alert-success', timeout: 3000 });
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/dashboard']);
     }else{
       this.flashMessageService.show ('Sign In Failed: Wrong username and/or password!',
                         { cssClass:'alert-danger', timeout: 3000 });
