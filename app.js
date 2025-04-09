@@ -22,7 +22,7 @@ const app = express();
 
 const users = require('./routes/users');
 
-const port = 5000;
+const port = 5001;
 
 //Index route
 app.get('/', (req, res) => {
